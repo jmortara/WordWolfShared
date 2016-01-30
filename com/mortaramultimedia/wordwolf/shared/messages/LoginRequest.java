@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 
 /**
- * Serializable Login object. This class is linked to both
- * the WordWolfAppAndroid (client) and WordWolfServer
- * projects. See each project's Properties/Java Build Path/Linked for info.
+ * Serializable shared Login Request object. This class is linked to both the WordWolfAppAndroid (client) and WordWolfServer projects. 
+ * See each project's Properties/Java Build Path/Linked for info.
  * The serialVersionUID must be compatible in order for serialization/deserialization to work correctly.
  * It appears from testing that serialVersionUID can be lower than but not higher than the complementary project's serialVersionUID.
  * If incompatible, an InvalidClassException will be thrown. Simply recompile both.
  * Also an option instead of sharing might be to compile a jar and be sure the same jar is used on both ends.
+ * @author jason mortara
  */
-public class LoginMessage implements Serializable
+public class LoginRequest implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -23,12 +23,13 @@ public class LoginMessage implements Serializable
 
 	
 	/**
+	 * Constructor
 	 * @param id
 	 * @param userName
 	 * @param password
 	 * @param email
 	 */
-	public LoginMessage(int id, String userName, String password, String email)
+	public LoginRequest(int id, String userName, String password, String email)
 	{
 		this.id = id;
 		this.userName = userName;
@@ -84,7 +85,8 @@ public class LoginMessage implements Serializable
 	@Override
 	public String toString()
 	{
-		return "LoginMessage [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email + "]";
+		return "LoginRequest [id=" + id + ", userName=" + userName
+				+ ", password=" + password + ", email=" + email + "]";
 	}
 
 	@Override
@@ -110,7 +112,7 @@ public class LoginMessage implements Serializable
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		LoginMessage other = (LoginMessage) obj;
+		LoginRequest other = (LoginRequest) obj;
 		if (email == null)
 		{
 			if (other.email != null)
