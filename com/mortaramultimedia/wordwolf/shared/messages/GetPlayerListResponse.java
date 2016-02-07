@@ -46,6 +46,12 @@ public class GetPlayerListResponse implements Serializable
 	{
 		return serialVersionUID;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "GetPlayerListResponse [playersCopy=" + playersCopy + "]";
+	}
 	
 	
 }

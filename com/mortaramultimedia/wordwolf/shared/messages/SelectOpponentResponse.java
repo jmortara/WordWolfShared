@@ -60,16 +60,6 @@ public class SelectOpponentResponse implements Serializable
 		this.sourcePort = sourcePort;
 	}
 
-	public String getSourceUsername()
-	{
-		return sourceUsername;
-	}
-
-	public void setSourceUsername(String sourceUsername)
-	{
-		this.sourceUsername = sourceUsername;
-	}
-
 	public String getDestinationUsername()
 	{
 		return destinationUsername;

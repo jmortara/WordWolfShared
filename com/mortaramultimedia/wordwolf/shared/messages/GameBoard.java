@@ -17,7 +17,7 @@ public class GameBoard implements Serializable
 	private int cols = -1;
 //	private List<TileData> colData = null;
 //	private List<TileData> rowData = null;
-	private List<TileData>[][] boardData = null;
+	private TileData[][] boardData = null;
 	
 	
 	/**
@@ -25,16 +25,16 @@ public class GameBoard implements Serializable
 	 * @param gameID
 	 * @param rows
 	 * @param cols
-	 * @param boardData
+	 * @param boardData2
 	 */
 	public GameBoard(int gameID, int rows, int cols,
-			List<TileData>[][] boardData)
+			TileData[][] boardData2)
 	{
 		super();
 		this.gameID = gameID;
 		this.rows = rows;
 		this.cols = cols;
-		this.boardData = boardData;
+		this.boardData = boardData2;
 	}
 	
 	public int getGameID()
@@ -67,12 +67,12 @@ public class GameBoard implements Serializable
 		this.cols = cols;
 	}
 
-	public List<TileData>[][] getBoardData()
+	public TileData[][] getBoardData()
 	{
 		return boardData;
 	}
 
-	public void setBoardData(List<TileData>[][] boardData)
+	public void setBoardData(TileData[][] boardData)
 	{
 		this.boardData = boardData;
 	}
@@ -87,6 +87,24 @@ public class GameBoard implements Serializable
 	{
 		return "GameBoard [gameID=" + gameID + ", rows=" + rows + ", cols="
 				+ cols + ", boardData=" + Arrays.toString(boardData) + "]";
+	}
+	
+	public void printBoardData()
+	{
+		int row;
+		int col;
+		TileData td = null;
+		for(row=0; row<rows; row++)
+		{
+			for(col=0; col<cols; col++)
+			{
+				td = boardData[row][col];
+				System.out.print(td.getLetter());
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+
 	}
 
 }

@@ -33,6 +33,13 @@ public class TileData implements Serializable
 		this.letter = letter;
 		this.selected = selected;
 	}
+	
+	/**
+	 * Empty Constructor
+	 */
+	public TileData()
+	{
+	}
 
 	public int getRow()
 	{
