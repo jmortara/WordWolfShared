@@ -27,8 +27,7 @@ public class GameBoard implements Serializable
 	 * @param cols
 	 * @param boardData2
 	 */
-	public GameBoard(int gameID, int rows, int cols,
-			TileData[][] boardData2)
+	public GameBoard(int gameID, int rows, int cols, TileData[][] boardData2)
 	{
 		super();
 		this.gameID = gameID;
@@ -36,6 +35,23 @@ public class GameBoard implements Serializable
 		this.cols = cols;
 		this.boardData = boardData2;
 	}
+	
+	////////////////////////////////
+	// Helpers
+	
+	public TileData getTileDataAtPos(int row, int col)
+	{
+		return boardData[row][col];
+	}
+	
+	public char getLetterAtPos(int row, int col)
+	{
+		TileData td = getTileDataAtPos(row, col);
+		return td.getLetter();
+	}
+	
+	///////////////////////////////
+	// Getters / Setters
 	
 	public int getGameID()
 	{
