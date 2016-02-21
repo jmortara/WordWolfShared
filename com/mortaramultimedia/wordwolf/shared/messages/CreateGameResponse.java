@@ -20,6 +20,7 @@ public class CreateGameResponse implements Serializable
 	private List<TileData> existingUserMoves = null;
 	private List<TileData> existingOpponentMoves = null;		//TODO: may not be nec if unused during player's game
 	private GameBoard gameBoard = null;
+	private long gameDurationMS = 10000;
 	private String errorMsg = null;
 	
 
@@ -38,6 +39,7 @@ public class CreateGameResponse implements Serializable
 	 * @param existingUserMoves
 	 * @param existingOpponentMoves
 	 * @param gameBoard
+	 * @param gameDurationMS
 	 * @param errorMsg
 	 */
 	public CreateGameResponse(int userID, String userName, String gameType,
@@ -45,7 +47,7 @@ public class CreateGameResponse implements Serializable
 			String opponentUserName, int startingUserScore,
 			int startingOpponentScore, List<TileData> existingUserMoves,
 			List<TileData> existingOpponentMoves, GameBoard gameBoard,
-			String errorMsg)
+			long gameDurationMS, String errorMsg)
 	{
 		this.userID = userID;
 		this.userName = userName;
@@ -60,6 +62,7 @@ public class CreateGameResponse implements Serializable
 		this.existingUserMoves = existingUserMoves;
 		this.existingOpponentMoves = existingOpponentMoves;
 		this.gameBoard = gameBoard;
+		this.gameDurationMS = gameDurationMS;
 		this.errorMsg = errorMsg;
 	}
 	
@@ -193,6 +196,16 @@ public class CreateGameResponse implements Serializable
 		this.gameBoard = gameBoard;
 	}
 
+	public long getGameDurationMS()
+	{
+		return gameDurationMS;
+	}
+
+	public void setGameDurationMS(long gameDurationMS)
+	{
+		this.gameDurationMS = gameDurationMS;
+	}
+
 	public String getErrorMsg()
 	{
 		return errorMsg;
@@ -219,7 +232,7 @@ public class CreateGameResponse implements Serializable
 				+ ", startingOpponentScore=" + startingOpponentScore
 				+ ", existingUserMoves=" + existingUserMoves
 				+ ", existingOpponentMoves=" + existingOpponentMoves
-				+ ", gameBoard=" + gameBoard + ", errorMsg=" + errorMsg + "]";
+				+ ", gameBoard=" + gameBoard + ", gameDurationMS=" + gameDurationMS + ", errorMsg=" + errorMsg + "]";
 	}
 	
 }

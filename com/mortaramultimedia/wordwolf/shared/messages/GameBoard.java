@@ -2,7 +2,6 @@ package com.mortaramultimedia.wordwolf.shared.messages;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Serializable shared object representing the GameBoard layout of rows and columns, as expressed as characters.
