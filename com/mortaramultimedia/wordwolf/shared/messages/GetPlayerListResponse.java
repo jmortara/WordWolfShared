@@ -7,13 +7,15 @@ public class GetPlayerListResponse implements Serializable
 {
 	private static final long serialVersionUID = 3L;
 
+	private String responseType = null;
 	private ArrayList<String> playersCopy = null;
 
 	/**
 	 * Constructor. 
 	 */
-	public GetPlayerListResponse(ArrayList<String> playersSource)
+	public GetPlayerListResponse(String responseType, ArrayList<String> playersSource)
 	{
+		this.responseType = responseType;
 		setPlayersCopy(playersSource);
 	}
 
@@ -40,6 +42,16 @@ public class GetPlayerListResponse implements Serializable
 		{
 			System.out.println("GetPlayerListReponse: WARNING: LIST LENGTH 0");
 		}
+	}
+
+	public String getResponseType()
+	{
+		return responseType;
+	}
+
+	public void setResponseType(String responseType)
+	{
+		this.responseType = responseType;
 	}
 
 	public static long getSerialversionuid()
