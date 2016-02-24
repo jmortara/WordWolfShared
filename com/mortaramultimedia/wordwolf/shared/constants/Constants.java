@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Shared Constants class, to be used by both client and server.
  * @author jason mortara
  */
-public class Constants  implements Serializable
+public class Constants implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +16,6 @@ public class Constants  implements Serializable
 	
 	// game types
 	public static final String GAME_TYPE_WORDWOLF_SINGLE_PLAYER = "game_type_wordwolf_single_player";
-	public static final String GAME_TYPE_WORDWOLF_DUAL_PLAYER	= "game_type_wordwolf_two_player";
+	public static final String GAME_TYPE_WORDWOLF_TWO_PLAYER	= "game_type_wordwolf_two_player";
 	
 }

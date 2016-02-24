@@ -4,32 +4,31 @@ import java.io.Serializable;
 
 /**
  * Shared serializable object to request a list of one or more players from the list currently in the server Model.
- * @author jason
+ * @author jason mortara
  *
  */
 public class GetPlayerListRequest implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String REQUEST_TYPE_THIS_PLAYER 				= "request_type_this_player";
-	public static final String REQUEST_TYPE_OPPONENT 					= "request_type_this_opponent";
-	public static final String REQUEST_TYPE_ALL_PLAYERS 				= "request_type_all_players";
-	public static final String RESPONSE_TYPE_ALL_ACTIVE_PLAYERS 		= "response_type_all_active_players";
-	public static final String RESPONSE_TYPE_SOME_PLAYERS 				= "response_type_some_players";
-	public static final String RESPONSE_TYPE_MORE_PLAYERS 				= "response_type_more_players";
-	public static final String RESPONSE_TYPE_SOME_ACTIVE_PLAYERS 		= "response_type_some_active_players";
-	public static final String RESPONSE_TYPE_MORE_ACTIVE_PLAYERS 		= "response_type_more_active_players";
-	public static final String RESPONSE_TYPE_DUPLICATE_PLAYERS 			= "response_type_duplicate_players";
-	public static final String RESPONSE_TYPE_DUPLICATE_ACTIVE_PLAYERS	= "response_type_duplicate_active_players";
-
 	private String requestType = null;
+	private String requestedUsername = null;	// known username of a potential opponent. not the username of the player making a request.
 	
 	/**
-	 * Constructor
+	 * Constructor (standard)
 	 */
 	public GetPlayerListRequest(String requestType)
 	{
 		this.requestType = requestType;
+	}
+	
+	/**
+	 * Constructor (for requesting a specific opponent by username)
+	 */
+	public GetPlayerListRequest(String requestType, String requestedUsername)
+	{
+		this.requestType = requestType;
+		this.requestedUsername = requestedUsername;
 	}
 
 	public String getRequestType()
@@ -40,6 +39,16 @@ public class GetPlayerListRequest implements Serializable
 	public void setRequestType(String requestType)
 	{
 		this.requestType = requestType;
+	}
+
+	public String getRequestedUsername()
+	{
+		return requestedUsername;
+	}
+
+	public void setRequestedUsername(String requestedUsername)
+	{
+		this.requestedUsername = requestedUsername;
 	}
 
 	public static long getSerialversionuid()

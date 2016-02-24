@@ -1,11 +1,15 @@
 package com.mortaramultimedia.wordwolf.shared.constants;
 
+import java.io.Serializable;
+
 /**
  * Constants representing player states.
  * @author jason mortara
  */
-public class PlayerState
+public class PlayerState implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	public static final String INIT 					= "player_state_init";
 	public static final String CONNECTED_1				= "player_state_connected_1";			// connected to wwss (socket server)
 	public static final String CONNECTED_2				= "player_state_connected_2";			// connected to wwss and database
