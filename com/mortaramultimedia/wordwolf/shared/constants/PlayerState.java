@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Constants representing player states.
  * @author jason mortara
  */
+//TODO: do we really need these on the client side? Maybe only for server use?
 public class PlayerState implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -15,7 +16,7 @@ public class PlayerState implements Serializable
 	public static final String CONNECTED_2				= "player_state_connected_2";			// connected to wwss and database
 	public static final String CONNECTED_3				= "player_state_connected_3";			// connected to wwss and DB and logged in
 	public static final String NEW 						= "player_state_new";					// new account
-	public static final String GETTING_USER_LIST		= "player_state_getting_user_list";			
+	public static final String GETTING_PLAYER_LIST		= "player_state_getting_player_list";	// requested list of players from server			
 	public static final String IDLE 					= "player_state_idle";
 	public static final String SEEKING_GAME 			= "player_state_seeking_game";
 	public static final String REQUESTED_OPPONENT		= "player_state_requested_opponent";
@@ -25,4 +26,5 @@ public class PlayerState implements Serializable
 	public static final String PLAYING_GAME 			= "player_state_playing_game";
 	public static final String GAME_ENDED	 			= "player_state_game_ended";
 	public static final String BUSY 					= "player_state_busy";
+	public static final String DISCONNECTED				= "player_state_disconnected";
 }
