@@ -7,6 +7,8 @@ import java.util.Set;
 
 import com.mortaramultimedia.wordwolf.shared.messages.*;
 
+import data.Model;
+
 
 public class Validator
 {
@@ -14,18 +16,27 @@ public class Validator
 //	private static final String[] testDict = {"a", "ad", "add", "added", "addition"};
 	private static HashMap<String, String> testDictMap;
 
+	/**
+	 * If the real (loaded) dictionary is unavailable, use a temp one.
+	 */
 	private static void initDictionary()
 	{
-		if(testDictMap == null)
+		System.out.println("Validator: initDictionary");
+		
+		//TODO - THIS IS TEST CODE
+		if(Model.getGlobalDictionary() == null)
 		{
-			System.out.println("Validator: initDictionary");
-			
-			testDictMap = new HashMap<String, String>();
-			testDictMap.put("a", "a");
-			testDictMap.put("ad", "ad");
-			testDictMap.put("add", "add");
-			testDictMap.put("added", "added");
-			testDictMap.put("addition", "addition");
+			System.out.println("Validator: initDictionary: real dictionary is unavailable. Generating a temp one.");
+			if(testDictMap == null)
+			{
+				
+				testDictMap = new HashMap<String, String>();
+				testDictMap.put("a", "a");
+				testDictMap.put("ad", "ad");
+				testDictMap.put("add", "add");
+				testDictMap.put("added", "added");
+				testDictMap.put("addition", "addition");
+			}
 		}
 	}
 	
@@ -166,6 +177,16 @@ public class Validator
 
 		initDictionary();
 		
+		HashMap<String, String> dictionaryToUse;
+		if(Model.getGlobalDictionary() != null && Model.getGlobalDictionary().size() > 0)
+		{
+			dictionaryToUse = Model.getGlobalDictionary();
+		}
+		else
+		{
+			dictionaryToUse = testDictMap;
+		}
+		
 		List<TileData> tileList = gameMove.getMove();
 		TileData thisTD = null;
 		Boolean wordFoundInDict = false;
@@ -180,10 +201,14 @@ public class Validator
 		}
 		word = word.toLowerCase();
 		
-		if(testDictMap != null)
+		if(dictionaryToUse != null)
 		{
-			wordFoundInDict = testDictMap.containsValue(word);
+			wordFoundInDict = dictionaryToUse.containsValue(word);
 			System.out.println("Validator: validateFoundInDictionary: word found? " + word + ", " + wordFoundInDict);
+		}
+		else
+		{
+			System.out.println("Validator: validateFoundInDictionary: WARNING: dictionaryToUse is null.");
 		}
 		
 		return wordFoundInDict;

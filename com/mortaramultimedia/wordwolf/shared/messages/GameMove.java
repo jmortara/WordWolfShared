@@ -1,7 +1,7 @@
 package com.mortaramultimedia.wordwolf.shared.messages;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Serializable shared object representing a single move, meaning a typed List<TileData> of two or more TileData objects.
@@ -12,23 +12,23 @@ public class GameMove implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
-	private List<TileData> move = null;
+	private ArrayList<TileData> move = null;
 
 	/**
 	 * Constructor
 	 * @param move
 	 */
-	public GameMove(List<TileData> move)
+	public GameMove(ArrayList<TileData> move)
 	{
 		this.move = move;
 	}
 
-	public List<TileData> getMove()
+	public ArrayList<TileData> getMove()
 	{
 		return move;
 	}
 
-	public void setMove(List<TileData> move)
+	public void setMove(ArrayList<TileData> move)
 	{
 		this.move = move;
 	}

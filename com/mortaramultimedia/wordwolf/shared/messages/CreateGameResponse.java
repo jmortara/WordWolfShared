@@ -20,7 +20,7 @@ public class CreateGameResponse implements Serializable
 	private List<TileData> existingUserMoves = null;
 	private List<TileData> existingOpponentMoves = null;		//TODO: may not be nec if unused during player's game
 	private GameBoard gameBoard = null;
-	private long gameDurationMS = 10000;
+	private long gameDurationMS = 1000 * 10;	// ms * secs
 	private String errorMsg = null;
 	
 

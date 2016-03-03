@@ -10,18 +10,20 @@ public class EndGameResponse implements Serializable
 	int id = -1;
 	Boolean endGameConfirmed = false;
 	int finalScoreFromServer = 0;
+	int opponentFinalScore = 0;
 	String errorMsg = null;
 	
 	/**
 	 * @param username
 	 * @param id
 	 */
-	public EndGameResponse(String username, int id, Boolean endGameConfirmed, int finalScoreFromServer, String errorMsg)
+	public EndGameResponse(String username, int id, Boolean endGameConfirmed, int finalScoreFromServer, int opponentFinalScore, String errorMsg)
 	{
 		this.username = username;
 		this.id = id;
 		this.endGameConfirmed = endGameConfirmed;
 		this.finalScoreFromServer = finalScoreFromServer;
+		this.opponentFinalScore = opponentFinalScore;
 		this.errorMsg = errorMsg;
 	}
 
@@ -65,6 +67,16 @@ public class EndGameResponse implements Serializable
 		this.finalScoreFromServer = finalScoreFromServer;
 	}
 
+	public int getOpponentFinalScore()
+	{
+		return opponentFinalScore;
+	}
+
+	public void setOpponentFinalScore(int opponentFinalScore)
+	{
+		this.opponentFinalScore = opponentFinalScore;
+	}
+
 	public String getErrorMsg()
 	{
 		return errorMsg;
@@ -81,9 +93,10 @@ public class EndGameResponse implements Serializable
 	}
 
 	@Override
-	public String toString()
-	{
-		return "EndGameResponse [username=" + username + ", id=" + id + ", endGameConfirmed=" + endGameConfirmed + "]";
+	public String toString() {
+		return "EndGameResponse [username=" + username + ", id=" + id + ", endGameConfirmed=" + endGameConfirmed
+				+ ", finalScoreFromServer=" + finalScoreFromServer + ", opponentFinalScore=" + opponentFinalScore
+				+ ", errorMsg=" + errorMsg + "]";
 	}
 	
 
