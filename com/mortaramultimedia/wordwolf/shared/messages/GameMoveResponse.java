@@ -11,16 +11,27 @@ public class GameMoveResponse implements Serializable
 	Boolean requestAccepted = false;
 	Boolean gameMoveValid = false;
 	int pointsAwarded = 0;
+	int newScore = 0;
 	String errorMsg = null;
 	
-	
-	public GameMoveResponse(String username, int id, Boolean requestAccepted, Boolean gameMoveValid, int pointsAwarded, String errorMsg)
+	/**
+	 * Constructor
+	 * @param username
+	 * @param id
+	 * @param requestAccepted
+	 * @param gameMoveValid
+	 * @param pointsAwarded
+	 * @param newScore
+	 * @param errorMsg
+	 */
+	public GameMoveResponse(String username, int id, Boolean requestAccepted, Boolean gameMoveValid, int pointsAwarded, int newScore, String errorMsg)
 	{
 		this.username = username;
 		this.id = id;
 		this.requestAccepted = requestAccepted;
 		this.gameMoveValid = gameMoveValid;
 		this.pointsAwarded = pointsAwarded;
+		this.newScore = newScore;
 		this.errorMsg = errorMsg;
 	}
 
@@ -68,10 +79,20 @@ public class GameMoveResponse implements Serializable
 	{
 		return pointsAwarded;
 	}
-
+	
 	public void setPointsAwarded(int pointsAwarded)
 	{
 		this.pointsAwarded = pointsAwarded;
+	}
+	
+	public int getNewScore()
+	{
+		return newScore;
+	}
+
+	public void setNewScore(int newScore)
+	{
+		this.newScore = newScore;
 	}
 
 	public String getErrorMsg()
@@ -90,11 +111,9 @@ public class GameMoveResponse implements Serializable
 	}
 
 	@Override
-	public String toString()
-	{
-		return "GameMoveResponse [username=" + username + ", id=" + id
-				+ ", requestAccepted=" + requestAccepted + ", gameMoveValid="
-				+ gameMoveValid + ", pointsAwarded=" + pointsAwarded
+	public String toString() {
+		return "GameMoveResponse [username=" + username + ", id=" + id + ", requestAccepted=" + requestAccepted
+				+ ", gameMoveValid=" + gameMoveValid + ", pointsAwarded=" + pointsAwarded + ", newScore=" + newScore
 				+ ", errorMsg=" + errorMsg + "]";
 	}
 
