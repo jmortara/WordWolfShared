@@ -214,5 +214,23 @@ public class Validator
 		return wordFoundInDict;
 	}
 	
+	public static String getWordFromGameMove(GameMove gameMove)
+	{
+		System.out.println("Validator: getWordFromGameMove");
+		
+		List<TileData> tileList = gameMove.getMove();
+		TileData thisTD = null;
+		int c;						// char index
+		int len = tileList.size();
+		
+		String word = "";
+		for(c=0; c<len; c++)
+		{
+			thisTD = tileList.get(c);
+			word += thisTD.getLetter();
+		}
+		
+		return word;
+	}
 
 }
