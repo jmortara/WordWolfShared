@@ -43,4 +43,29 @@ public class GameMove implements Serializable
 	{
 		return "GameMove [move=" + move + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((move == null) ? 0 : move.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GameMove other = (GameMove) obj;
+		if (move == null) {
+			if (other.move != null)
+				return false;
+		} else if (!move.equals(other.move))
+			return false;
+		return true;
+	}
 }
