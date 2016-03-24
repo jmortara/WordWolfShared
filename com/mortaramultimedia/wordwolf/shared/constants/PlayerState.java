@@ -27,5 +27,6 @@ public class PlayerState implements Serializable
 	public static final String GAME_ENDED	 			= "player_state_game_ended";
 	public static final String REQUESTED_REMATCH		= "player_state_sent_requested_rematch";
 	public static final String BUSY 					= "player_state_busy";
+	public static final String PAUSED 					= "player_state_paused";				// left the app but still connected, may return to app
 	public static final String DISCONNECTED				= "player_state_disconnected";
 }
