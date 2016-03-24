@@ -25,6 +25,7 @@ public class PlayerState implements Serializable
 	public static final String READY_FOR_GAME_START		= "player_state_ready_for_game_start";
 	public static final String PLAYING_GAME 			= "player_state_playing_game";
 	public static final String GAME_ENDED	 			= "player_state_game_ended";
+	public static final String REQUESTED_REMATCH		= "player_state_sent_requested_rematch";
 	public static final String BUSY 					= "player_state_busy";
 	public static final String DISCONNECTED				= "player_state_disconnected";
 }

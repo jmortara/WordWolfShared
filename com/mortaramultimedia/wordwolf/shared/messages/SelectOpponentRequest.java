@@ -10,17 +10,22 @@ public class SelectOpponentRequest implements Serializable
 	private int sourceUserPort = -1;
 	private String destinationUserName = null;
 	private int destinationPort = -1;
+	private Boolean isRematch = false;
 	private Boolean randomOpponent = false;
 	
+
 	/**
 	 * Constructor 1: using destination's username.
+	 * @param sourceUsername
 	 * @param destinationUsername
+	 * @param isRematch
 	 */
-	public SelectOpponentRequest(String sourceUsername, String destinationUsername)
+	public SelectOpponentRequest(String sourceUsername, String destinationUsername, Boolean isRematch)
 	{
 		this.sourceUsername = sourceUsername;
 		this.destinationUserName = destinationUsername;
 		this.randomOpponent = false;
+		this.isRematch = isRematch;
 	}
 	
 	/**
@@ -31,6 +36,7 @@ public class SelectOpponentRequest implements Serializable
 	{
 		this.destinationPort = destinationPort;
 		this.randomOpponent = false;
+		this.isRematch = false;
 	}
 
 	/**
@@ -40,6 +46,7 @@ public class SelectOpponentRequest implements Serializable
 	public SelectOpponentRequest(Boolean randomOpponent)
 	{
 		this.randomOpponent = randomOpponent;
+		this.isRematch = false;
 	}
 	
 	public String getSourceUsername()
@@ -77,6 +84,16 @@ public class SelectOpponentRequest implements Serializable
 		return destinationPort;
 	}
 
+	public Boolean getIsRematch() 
+	{
+		return isRematch;
+	}
+
+	public void setIsRematch(Boolean isRematch) 
+	{
+		this.isRematch = isRematch;
+	}
+
 	public void setDestinationPort(int destinationPort)
 	{
 		this.destinationPort = destinationPort;
@@ -98,12 +115,10 @@ public class SelectOpponentRequest implements Serializable
 	}
 
 	@Override
-	public String toString()
-	{
-		return "SelectOpponentRequest [sourceUsername=" + sourceUsername
-				+ ", sourceUserPort=" + sourceUserPort
-				+ ", destinationUserName=" + destinationUserName + ", destinationPort="
-				+ destinationPort + ", randomOpponent=" + randomOpponent + "]";
+	public String toString() {
+		return "SelectOpponentRequest [sourceUsername=" + sourceUsername + ", sourceUserPort=" + sourceUserPort
+				+ ", destinationUserName=" + destinationUserName + ", destinationPort=" + destinationPort
+				+ ", isRematch=" + isRematch + ", randomOpponent=" + randomOpponent + "]";
 	}
 
 }

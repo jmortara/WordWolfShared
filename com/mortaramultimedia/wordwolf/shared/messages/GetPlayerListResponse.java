@@ -3,23 +3,28 @@ package com.mortaramultimedia.wordwolf.shared.messages;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import data.PublicPlayerData;
+
+
 public class GetPlayerListResponse implements Serializable
 {
 	private static final long serialVersionUID = 3L;
 
 	private String responseType = null;
-	private ArrayList<String> playersCopy = null;
+	private ArrayList<PublicPlayerData> playersCopy = null;
 
 	/**
-	 * Constructor. 
+	 * Constructor.
+	 * @param responseType
+	 * @param playersSource
 	 */
-	public GetPlayerListResponse(String responseType, ArrayList<String> playersSource)
+	public GetPlayerListResponse(String responseType, ArrayList<PublicPlayerData> playersSource)
 	{
 		this.responseType = responseType;
 		setPlayersCopy(playersSource);
 	}
 
-	public ArrayList<String> getPlayersCopy()
+	public ArrayList<PublicPlayerData> getPlayersCopy()
 	{
 		return playersCopy;
 	}
@@ -29,9 +34,9 @@ public class GetPlayerListResponse implements Serializable
 	 * Copies whatever source list is passed into it for safety.
 	 * @param playersSource
 	 */
-	public void setPlayersCopy(ArrayList<String> playersSource)
+	public void setPlayersCopy(ArrayList<PublicPlayerData> playersSource)
 	{
-		this.playersCopy = new ArrayList<String>(playersSource);
+		this.playersCopy = new ArrayList<PublicPlayerData>(playersSource);
 		System.out.println("GetPlayerListReponse: source List: " + playersSource);
 		System.out.println("GetPlayerListReponse: copied List: " + playersCopy);
 		if(playersCopy == null)
