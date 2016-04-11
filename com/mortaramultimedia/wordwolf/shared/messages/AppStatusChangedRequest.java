@@ -14,11 +14,28 @@ public class AppStatusChangedRequest implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
+	private String username = null;
 	private String status = AppStatus.INIT;
 	
-	public AppStatusChangedRequest(String status) 
+	/**
+	 * Constructor.
+	 * @param username
+	 * @param status - new status of app
+	 */
+	public AppStatusChangedRequest(String username, String status) 
 	{
+		this.username = username;
 		this.status = status;
+	}
+
+	public String getUsername() 
+	{
+		return username;
+	}
+
+	public void setUsername(String username) 
+	{
+		this.username = username;
 	}
 
 	public String getStatus() 
@@ -39,7 +56,7 @@ public class AppStatusChangedRequest implements Serializable
 	@Override
 	public String toString() 
 	{
-		return "AppStatusChangedRequest [status=" + status + "]";
+		return "AppStatusChangedRequest [username=" + username + ", status=" + status + "]";
 	}
 	
 }
